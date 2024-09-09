@@ -1,8 +1,8 @@
-FROM golang:latest as builder
+FROM golang:latest AS builder
 
 COPY main.go .
 
-RUN go build main.go
+RUN go build -ldflags="-s -w" main.go
 
 FROM scratch
 
